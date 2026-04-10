@@ -3,80 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>م. محمود مرسي | خبير استراتيجي ومحلل بيانات</title>
+    <title>Mahmoud Morsi | Strategic Consultant & Data Analyst</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* الألوان: أزرق كحلي وذهبي */
+        /* الأساسيات والألوان */
         :root { --primary: #0d2c5e; --gold: #c5a017; --bg: #f4f6f8; --text: #2c3e50; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
         
         /* الهيدر */
-        header { background: linear-gradient(135deg, var(--primary), #1a3a6e); color: white; padding: 4rem 1rem 6rem; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
-        .profile-img { width: 170px; height: 170px; border-radius: 50%; border: 5px solid var(--gold); object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-bottom: 1rem; background: #fff; }
+        header { background: linear-gradient(135deg, var(--primary), #1a3a6e); color: white; padding: 4rem 1rem 6rem; text-align: center; }
+        .profile-img { width: 170px; height: 170px; border-radius: 50%; border: 5px solid var(--gold); object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         header h1 { margin: 0.5rem 0; font-size: 2.8rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .rank-badge { background: var(--gold); color: #000; padding: 6px 18px; border-radius: 25px; font-weight: bold; font-size: 0.95rem; display: inline-block; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .rank-badge { background: var(--gold); color: #000; padding: 6px 18px; border-radius: 25px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 15px; }
         header p { font-size: 1.3rem; opacity: 0.95; max-width: 700px; margin: 10px auto; }
         
-        .social-icons a { color: white; margin: 0 15px; font-size: 2rem; text-decoration: none; transition: 0.3s; }
+        /* أيقونات التواصل */
+        .social-icons a { color: white; margin: 0 15px; font-size: 2rem; text-decoration: none; transition: 0.3s; display: inline-block; }
         .social-icons a:hover { color: var(--gold); transform: translateY(-3px); }
-
-        .container { max-width: 1100px; margin: -80px auto 0; padding: 0 1.5rem; position: relative; z-index: 10; }
         
-        .section { background: white; padding: 2.5rem; margin-bottom: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 5px solid var(--gold); }
-        h2 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 1rem; margin-top: 0; font-size: 1.8rem; display: flex; align-items: center; gap: 12px; }
+        /* زر تغيير اللغة */
+        .lang-switch-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--gold);
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .lang-switch-btn:hover { background-color: #fff; color: var(--primary); }
+
+        /* المحتوى والأقسام */
+        .container { max-width: 1000px; margin: -50px auto 0; padding: 0 20px; position: relative; z-index: 10; }
+        .card { background: white; border-radius: 10px; padding: 30px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
+        .card h2 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .card p { font-size: 1.1rem; color: #444; }
         
-        .highlight-box { background: #f8fbff; border-right: 5px solid var(--primary); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; }
-        .highlight-box h3 { color: var(--primary); margin-top: 0; font-size: 1.3rem; }
-
-        /* معرض الشهادات */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 1.5rem; }
-        .cert-item { border: 1px solid #eee; border-radius: 8px; padding: 5px; background: #fff; transition: 0.3s; overflow: hidden; }
-        .cert-item:hover { transform: scale(1.03); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: var(--gold); }
-        .cert-item img { width: 100%; height: 120px; object-fit: cover; border-radius: 4px; cursor: pointer; }
-
-        /* معرض المشاريع */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1.5rem; }
-        .project-card { border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; transition: 0.3s; background: #fff; display: flex; flex-direction: column; }
-        .project-card:hover { transform: translateY(-7px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); border-color: var(--gold); }
-        /* تنسيق الصور */
-        .project-img { width: 100%; height: auto; min-height: 200px; object-fit: contain; border-bottom: 1px solid #eee; background-color: #f9f9f9; }
-        .project-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .project-card h3 { color: var(--primary); margin-top: 0; font-size: 1.4rem; }
-        .tech-stack { margin-top: auto; padding-top: 1rem; margin-bottom: 1rem; }
-        .tech-stack span { background: #e3f2fd; color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; display: inline-block; margin: 3px; font-weight: 600; }
-        
-        .btn-download { display: block; text-align: center; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: 0.3s; margin-top: 10px; }
-        .btn-download:hover { background: var(--primary); color: white; }
-
-        .skills-container { display: flex; flex-wrap: wrap; gap: 12px; }
-        .skill-pill { background: var(--primary); color: white; padding: 10px 20px; border-radius: 30px; font-size: 1rem; display: flex; align-items: center; gap: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
-        .skill-pill.soft { background: var(--gold); color: #000; font-weight: bold; }
-
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 14px 35px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 1.5rem; transition: 0.3s; box-shadow: 0 4px 10px rgba(26, 35, 126, 0.3); }
-        .btn:hover { background: var(--gold); color: #000; transform: translateY(-2px); }
-
-        footer { text-align: center; padding: 3rem; background: var(--primary); color: #ccc; margin-top: 3rem; font-size: 0.95rem; border-top: 5px solid var(--gold); }
-   .lang-switch-btn {
-    display: inline-block;
-    padding: 6px 14px;
-    background-color: var(--gold);
-    color: #000;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
-.lang-switch-btn:hover {
-    background-color: #fff;
-    color: var(--primary);
-}
+        /* الفوتر */
+        footer { text-align: center; padding: 2rem; background: var(--primary); color: #ccc; margin-top: 2rem; font-size: 0.95rem; border-top: 5px solid var(--gold); }
     </style>
 </head>
 <body>
 
     <header>
-      <a href="index.html" class="lang-switch-btn">العربية</a>
+        <a href="index.html" class="lang-switch-btn">العربية</a>
+        <br>
         <img src="profile.jpg" alt="Mahmoud Morsi" class="profile-img">
         <br>
         <div class="rank-badge">COLONEL (Ret.) | SENIOR STRATEGIST</div>
@@ -92,104 +65,24 @@
     </header>
 
     <div class="container">
-        
-        <div class="section">
-            <h2><i class="fas fa-user-shield"></i> القيادة الاستراتيجية والهندسة</h2>
-            <p style="font-size: 1.1rem;">
-                بخبرة عسكرية وهندسية تتجاوز 20 عاماً، تخصصت في إدارة العمليات المعقدة. اليوم، أوظف هذه العقلية في <strong>تحليل البيانات</strong> لاتخاذ قرارات مدروسة، مما يقلل المخاطر ويرفع كفاءة التشغيل.
-            </p>
-            <div class="highlight-box">
-                <h3><i class="fas fa-handshake"></i> التفاوض وإدارة الأزمات</h3>
-                <p>إدارة الأزمات علم وتوقع. أستخدم البيانات لبناء سيناريوهات تفاوض قوية واحتواء المواقف الصعبة وتحويلها لنجاحات.</p>
-            </div>
-            <a href="mahmoud CV.docx" class="btn"><i class="fas fa-file-download"></i> تحميل السيرة الذاتية (CV)</a>
+        <div class="card">
+            <h2><i class="fas fa-shield-alt" style="color: var(--gold);"></i> Strategic Leadership & Engineering</h2>
+            <p>With over 20 years of military and engineering experience, I specialize in managing complex operations. Today, I leverage this mindset in data analysis to drive informed decisions, mitigate risks, and maximize operational efficiency.</p>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-certificate"></i> اعتمادات وشهادات (Credentials)</h2>
-            <p>مجموعة مختارة من أبرز الشهادات والاعتمادات (من أصل 26+ شهادة):</p>
-            <div class="cert-grid">
-                <div class="cert-item"><img src="cert1.jpg" alt="Cert 1"></div>
-                <div class="cert-item"><img src="cert2.jpg" alt="Cert 2"></div>
-                <div class="cert-item"><img src="cert3.jpg" alt="Cert 3"></div>
-                <div class="cert-item"><img src="cert4.jpg" alt="Cert 4"></div>
-                <div class="cert-item"><img src="cert5.jpg" alt="Cert 5"></div>
-                <div class="cert-item"><img src="cert6.jpg" alt="Cert 6"></div>
-                <div class="cert-item"><img src="cert7.jpg" alt="Cert 7"></div>
-                <div class="cert-item"><img src="cert8.jpg" alt="Cert 8"></div>
-                <div class="cert-item"><img src="cert9.jpg" alt="Cert 9"></div>
-                <div class="cert-item"><img src="cert10.jpg" alt="Cert 10"></div>
-                <div class="cert-item"><img src="cert11.jpg" alt="Cert 11"></div>
-                <div class="cert-item"><img src="cert12.jpg" alt="Cert 12"></div>
-            </div>
+        <div class="card">
+            <h2><i class="fas fa-chart-line" style="color: var(--gold);"></i> Data Analytics & Business Intelligence</h2>
+            <p>Expertise in transforming raw data into actionable insights using Power BI, Excel, and Python. I specialize in building interactive dashboards that track KPIs and provide a 360-degree view of business performance.</p>
         </div>
 
-        <div class="section">
-            <h2><i class="fas fa-chart-pie"></i> معرض الأعمال والتحليلات</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <img src="project1.jpg" alt="Sales Dashboard" class="project-img">
-                    <div class="project-content">
-                        <h3>1. تحليل المبيعات (Sales Analysis)</h3>
-                        <p>مشروع متكامل باستخدام Excel لتحليل بيانات المبيعات. تم بناء نموذج بيانات (Data Model) لربط الجداول واستخراج مؤشرات الأداء.</p>
-                        <div class="tech-stack">
-                            <span>Excel Advanced</span>
-                            <span>Pivot Charts</span>
-                            <span>Data Modeling</span>
-                        </div>
-                        <a href="project 1.xlsx" class="btn-download" download><i class="fas fa-file-excel"></i> تحميل المشروع (Excel)</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="project2.jpg" alt="Power BI Dashboard" class="project-img">
-                    <div class="project-content">
-                        <h3>2. داشبورد ذكاء الأعمال (Supply Chain)</h3>
-                        <p>لوحة قيادة تفاعلية باستخدام Power BI لتحليل كفاءة التوريد. تتيح تتبع حركة المنتجات وتحديد نقاط الهدر في الوقت والمخزون.</p>
-                        <div class="tech-stack">
-                            <span>Power BI</span>
-                            <span>DAX</span>
-                            <span>Interactive Reports</span>
-                        </div>
-                        <a href="project 2.pbix" class="btn-download" download><i class="fas fa-file-powerpoint"></i> تحميل المشروع (PBIX)</a>
-                    </div>
-                </div>
-
-                 <div class="project-card">
-                    <img src="project3.jpg" alt="Audiology Channel" class="project-img">
-                    <div class="project-content">
-                        <h3>3. Audiology911 (كتب صوتية & Voice Over)</h3>
-                        <p>قناة متخصصة في الفنون الصوتية والكتب المسموعة. إدارة وإنتاج محتوى احترافي، واستخدام تحليلات اليوتيوب لفهم الجمهور.</p>
-                        <div class="tech-stack">
-                            <span>Voice Over</span>
-                            <span>Audio Production</span>
-                            <span>Analytics</span>
-                        </div>
-                        <a href="https://www.youtube.com/@audiology911" target="_blank" class="btn-download"><i class="fab fa-youtube"></i> زيارة القناة</a>
-                    </div>
-                </div>
-
-            </div>
+        <div class="card">
+            <h2><i class="fas fa-briefcase" style="color: var(--gold);"></i> Business & Agricultural Investment</h2>
+            <p>Founder and Manager of "Aldawleya" for Agricultural Investment and "Blue Elephant" for General Supplies. I combine strategic planning with hands-on management to ensure the success of large-scale agricultural and commercial projects.</p>
         </div>
-
-        <div class="section">
-            <h2><i class="fas fa-layer-group"></i> المهارات والكفاءات</h2>
-            <div class="skills-container">
-                <div class="skill-pill soft"><i class="fas fa-users-cog"></i> Crisis Management</div>
-                <div class="skill-pill soft"><i class="fas fa-chess-knight"></i> Strategic Planning</div>
-                <div class="skill-pill soft"><i class="fas fa-comments"></i> Negotiation Expert</div>
-                <div class="skill-pill soft"><i class="fas fa-hard-hat"></i> Occupational Safety</div>
-                <div class="skill-pill"><i class="fas fa-table"></i> Excel & Modeling</div>
-                <div class="skill-pill"><i class="fas fa-chart-bar"></i> Power BI</div>
-                <div class="skill-pill"><i class="fab fa-python"></i> Python Basics</div>
-            </div>
-        </div>
-
     </div>
 
     <footer>
-        <p>&copy; 2025 Eng. Mahmoud Morsi. All Rights Reserved.</p>
+        &copy; 2026 Mahmoud Morsi. All rights reserved.
     </footer>
 
 </body>
